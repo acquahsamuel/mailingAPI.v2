@@ -4,7 +4,8 @@
   "description": "A node sending api endpoint",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "keywords": [
     "Node",
@@ -15,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "joi": "^14.3.1",
     "mongoose": "^5.9.20",
