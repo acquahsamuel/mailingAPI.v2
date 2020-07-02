@@ -21,6 +21,7 @@
     "joi": "^14.3.1",
     "mongoose": "^5.9.20",
     "nodemailer": "^6.4.10",
-    "nodemailer-mailgun-transport": "^2.0.0"
+    "nodemailer-mailgun-transport": "^2.0.0",
+    "nodemon": "^2.0.4"
   }
 }

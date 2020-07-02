@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mailer</title>
+    <link rel="stylesheet" href="css/page.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/bodymovin.js"></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="pc_layout">
+      <div class="messageBar">
+        <div class="title">Mailer</div>
+        <div class="label">Enter Records</div>
+        <textarea id="from" cols="30" rows="1" placeholder="from"></textarea>
+
+        <br />
+
+        <textarea id="to" cols="30" rows="1" placeholder="to"></textarea>
+
+        <br />
+
+        <textarea
+          id="subject"
+          cols="30"
+          rows="1"
+          placeholder="Subject"
+        ></textarea>
+
+        <br />
+
+        <textarea
+          id="message"
+          cols="30"
+          rows="1"
+          placeholder="Message"
+        ></textarea>
+        <br />
+
+        <input id="submit" class="sendBtn" type="button" value="Send Mail" />
+
+        <div class="loading">
+          <div class="loadingwrapper">
+            <div id="loading"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+  </body>
+</html>
