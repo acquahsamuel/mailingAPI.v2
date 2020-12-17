@@ -1,30 +1,18 @@
 const path = require("path");
 const express = require("express");
-const mongoose = require("mongoose");
+const connnectDB = require('./config/db');
 
-const config = require("dotenv").config();
+require("dotenv").config({ path : './config/config.env' });
 const sendEmail = require("./routes/sendEmail");
 
+connnectDB();
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
-
-mongoose
-  .connect("mongodb://localhost:27017/emailAPI", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to mongodb");
-  });
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-/**
- *@TODO Logs error after Email is sent
- Investigate ERROR [ Cannot set headers after they are sent to the client] 
- */
+
 app.post("/sendEmail", (req, res) => {
   const { from, to, subject, message } = req.body;
   console.log(from + " " + to + " " + subject + " " + message);
@@ -40,7 +28,7 @@ app.post("/sendEmail", (req, res) => {
   });
 });
 
-const port = 8080 || process.env.PORT;
+const port = 5000 || process.env.PORT;
 app.listen(`${port}`, () => {
   console.log(`Server is runing on ${port}`);
 });
