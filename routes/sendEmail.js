@@ -1,23 +1,23 @@
 const nodemailer = require("nodemailer");
 const mailGun = require("nodemailer-mailgun-transport");
-const config =  require("dotenv").config();
+require("dotenv").config({ path : './config/config.env' });
 
 const auth = {
   auth: {
     api_key: process.env.API_KEY,
-    domain: process.env.DOMAIN
+    domain: process.env.DOMAIN,
   },
 };
 
 const nodemailerMailgun = nodemailer.createTransport(mailGun(auth));
 
-const sendEmail = (email, subject, message, response) => {
+const sendEmail = (from, to, subject, message, response) => {
   const mailOptions = {
-    from : email ,
-    to: "iamsamuelacquah@gmail.com",
-    subject,
-    message,
-    text: 'Mailgun rocks, pow pow!'
+    from: from,
+    to: to,
+    subject: subject,
+    // text: message, //Use this if message is without html option
+    html: message,
   };
 
   nodemailerMailgun.sendMail(mailOptions, function (error, data) {
